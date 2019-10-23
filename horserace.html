@@ -1,0 +1,93 @@
+<html>
+	<head>
+	<title>Horse Race with Javascript!</title>
+	<style>
+		p {
+  			font-family: "Courier New", Courier, monospace;
+			font-size: 20
+			}
+	</style>
+
+	<script>
+		/* From https://www.alt-codes.net/animal-symbols.php
+		🐵	Monkey Face	U+1F435	&#128053
+		🐒	Monkey	U+1F412	&#128018
+		🦍	Gorilla	U+1F98D	&#129421
+		🐶	Dog Face	U+1F436	&#128054
+		🐕	Dog	U+1F415	&#128021
+		🐩	Poodle	U+1F429	&#128041
+		🐺	Wolf Face	U+1F43A	&#128058
+		🦊	Fox Face	U+1F98A	&#129418
+		🦝	Raccoon	U+1F99D	&#129437
+		🐱	Cat Face	U+1F431	&#128049
+		*/
+		animals=["Monkey1", 
+			"Monkey2", 
+			"Gorilla", 
+			"Dog1", 
+			"Dog2", 
+			"Poodle", 
+			"Wolf",
+			"Fox", 
+			"Raccon", 
+			"Cat"]
+		animals_code=["&#128053;", 
+			"&#128018;", 
+			"&#129421;", 
+			"&#128054;", 
+			"&#128021;", 
+			"&#128041;", 
+			"&#128058;", 
+			"&#129418;", 
+			"&#129437;", 
+			"&#128049;"]
+		nhorses=10
+		horses=[...Array(nhorses)].map((_,i) => i);
+		position_horses=[...Array(nhorses)].map((_,i) => 0);
+		race=""
+		winners=[]
+		function print_horse(value, index, array)
+		{
+			race += animals[index].padEnd(8).replace(/ /g, "&nbsp;")+":" 
+			race += "&nbsp;".repeat(value)+animals_code[index]+"<br>";
+		} 
+		function random_step(value, index, array)
+		{
+			position_horses[index]=value+Math.floor(Math.random() * 3);
+		}
+		function next_step(position_horses)
+		{
+			position_horses.forEach(random_step)
+		}
+		function select_winners(value, index, array)
+		{
+			if (value == Math.max(...position_horses))
+			{
+				winners=winners.concat([index])
+			}
+		}
+		function print_horses()
+		{
+			race=""
+			position_horses.forEach(print_horse)
+			if (Math.max(...position_horses) > 50)
+			{
+				position_horses.forEach(select_winners)
+				winner=winners[Math.floor(Math.random()*winners.length)]
+				race+="Winner is: " + animals[winner] + "("+animals_code[winner]+")" + "!"
+				document.getElementById("race").innerHTML = race
+				clearInterval(timer)
+				return
+			}
+			document.getElementById("race").innerHTML = race
+			next_step(position_horses)
+		}
+		window.onload=function()
+		{
+			timer=setInterval(print_horses,200)
+		}
+	</script>
+	</head>
+
+	<p id="race" >Loading Animals Race!</p>
+</html>
