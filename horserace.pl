@@ -95,6 +95,6 @@ my $w = AnyEvent->signal (signal => "INT", cb =>
 	sub { system("tput cvvis"); print "Finished before the end\n"; exit 1 });
 my %horses= map { $_ => 0 } (1..$nhorses);
 my $scr=init_screen (\%horses);
-my $hr = AnyEvent->timer (after => 2, interval => 1, 
+my $hr = AnyEvent->timer (after => 2, interval => 0.2, 
 		cb => sub {update_screen ($scr,\%horses); });
 $finished->recv;
