@@ -26,6 +26,7 @@ Credit to Curses
 
 ## JavaScript (HTML)
 I will improve the gif (vokoscreen running on gnome3, a known issue)
+See online https://i5513.github.io/horserace.html
 ![race with python](horserace.html.gif)
 
 
