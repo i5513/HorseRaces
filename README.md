@@ -5,19 +5,23 @@ HorseRaces with your favourite programming language
 You will need to install Term::Screen (cpan install Term::Screen)
 and apt install libanyevent-perl. You can see the original post at perlmonks:
 https://www.perlmonks.org/?node_id=962940
+
 ![race with Perl](horserace.pl.gif)
 
 ## Bash
 Should be rewrite to no use additional files
+
 ![race with bash](horserace.bash.gif)
 
 
 ## Powershell
 Script surely can be improved :D
+
 ![race with powershell](horserace.ps1.gif)
 
 ## Python
 Credit to Curses 
+
 ![race with python](horserace.ps1.gif)
 
 # Pull request
