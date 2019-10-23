@@ -22,7 +22,7 @@ Script surely can be improved :D
 ## Python
 Credit to Curses 
 
-![race with python](horserace.ps1.gif)
+![race with python](horserace.py.gif)
 
 # Pull request
 Would be accepeted !
